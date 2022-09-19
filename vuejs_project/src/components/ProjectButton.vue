@@ -10,9 +10,9 @@
     <div class="calculator" v-if="isClick == 8">{{val}}</div>
     <div class="calculator" v-if="isClick == 9">{{val}}</div>
     <div class="calculator" v-if="isClick == 10">{{val}}</div>
-    <div class="calculator" v-if="isClick == 11"></div>
-    <div class="calculator" v-if="isClick == 12"></div>
-    <div class="calculator" v-if="isClick == 13"></div>
+    <div class="calculator" v-if="isClick == 11">{{ans}}</div>
+    <div class="calculator" v-if="isClick == 12">{{ans}}</div>
+    <div class="calculator" v-if="isClick == 13">{{ans}}</div>
     <button class="btn success" @click="one">1
     </button>
     <button class="btn success" @click="two">2
