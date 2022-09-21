@@ -13,6 +13,7 @@
     <div class="calculator" v-if="isClick == 11">{{ans}}</div>
     <div class="calculator" v-if="isClick == 12">{{ans}}</div>
     <div class="calculator" v-if="isClick == 13">{{ans}}</div>
+    <div class="calculator" v-if="isClick == 14">{{ans}}</div>
     <button class="btn success" @click="one">1
     </button>
     <button class="btn success" @click="two">2
@@ -196,6 +197,13 @@ export default {
             this.isClick = 13;
             this.sign = 'x';
             console.log(this.ans);
+        },
+        divi(){
+            if(this.val !== '0' )
+                this.ans /= this.val;
+            this.isClick = 14;
+            this.val = '0';
+            console.log(this.val);
         },
         eql()
         {
