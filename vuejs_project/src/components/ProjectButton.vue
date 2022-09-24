@@ -1,69 +1,83 @@
 <template>
-    <div class="calculator" v-if="isClick == 20">{{ans}}</div>
-    <div class="calculator" v-if="isClick == 1">{{val}}</div>
-    <div class="calculator" v-if="isClick == 2">{{val}}</div>
-    <div class="calculator" v-if="isClick == 3">{{val}}</div>
-    <div class="calculator" v-if="isClick == 4">{{val}}</div>
-    <div class="calculator" v-if="isClick == 5">{{val}}</div>
-    <div class="calculator" v-if="isClick == 6">{{val}}</div>
-    <div class="calculator" v-if="isClick == 7">{{val}}</div>
-    <div class="calculator" v-if="isClick == 8">{{val}}</div>
-    <div class="calculator" v-if="isClick == 9">{{val}}</div>
-    <div class="calculator" v-if="isClick == 10">{{val}}</div>
-    <div class="calculator" v-if="isClick == 11">{{ans}}</div>
-    <div class="calculator" v-if="isClick == 12">{{ans}}</div>
-    <div class="calculator" v-if="isClick == 13">{{ans}}</div>
-    <div class="calculator" v-if="isClick == 14">{{ans}}</div>
-    <button class="btn success" @click="one">1
-    </button>
-    <button class="btn success" @click="two">2
-    </button>
-    <button class="btn success" @click="three">3
-    </button>
-    <div>
-        <button class="btn success" @click="four">4
-        </button>
-        <button class="btn success" @click="five">5
-        </button>
-        <button class="btn success" @click="six">6
-        </button>
+    <div class="card">
+        <!-- <div class="calculator" v-if="isClick == 20">{{ans}}</div> -->
+        <input class="num" v-model="val" />
+        <div class="answer" v-if="ans">{{ans}}</div>
+        <!-- <input class="calculator" v-if="isClick == 2" v-model="val"/>
+        <input class="calculator" v-if="isClick == 3" v-model="val"/>
+        <input class="calculator" v-if="isClick == 4" v-model="val"/>
+        <input class="calculator" v-if="isClick == 5" v-model="val"/>
+        <input class="calculator" v-if="isClick == 6" v-model="val"/>
+        <input class="calculator" v-if="isClick == 7" v-model="val"/>
+        <input class="calculator" v-if="isClick == 8" v-model="val"/>
+        <input class="calculator" v-if="isClick == 9" v-model="val"/>
+        <input class="calculator" v-if="isClick == 10" v-model="val"/>
+        <input class="calculator" v-if="isClick == 11" v-model="ans"/>
+        <input class="calculator" v-if="isClick == 12" v-model="ans"/>
+        <input class="calculator" v-if="isClick == 13" v-model="ans"/> -->
     </div>
+    <!-- <div class="calculator" v-if="isClick == 2">{{val}}</div>
+        <div class="calculator" v-if="isClick == 3">{{val}}</div>
+        <div class="calculator" v-if="isClick == 4">{{val}}</div>
+        <div class="calculator" v-if="isClick == 5">{{val}}</div>
+        <div class="calculator" v-if="isClick == 6">{{val}}</div>
+        <div class="calculator" v-if="isClick == 7">{{val}}</div>
+        <div class="calculator" v-if="isClick == 8">{{val}}</div>
+        <div class="calculator" v-if="isClick == 9">{{val}}</div>
+        <div class="calculator" v-if="isClick == 10">{{val}}</div>
+        <div class="calculator" v-if="isClick == 11">{{ans}}</div>
+        <div class="calculator" v-if="isClick == 12">{{ans}}</div>
+        <div class="calculator" v-if="isClick == 13">{{ans}}</div> -->
     <div>
-        <button class="btn success" @click="seven">7
+        <button class="btn success" @click="one">1
         </button>
-        <button class="btn success" @click="eight">8
+        <button class="btn success" @click="two">2
         </button>
-        <button class="btn success" @click="nine">9
-        </button>
-    </div>
-    <div>
-        <button class="btn success" @click="clr">C
-        </button>
-        <button class="btn success" @click="zero">0
-        </button>
-        <button class="btn success" @click="eql">=
-        </button>
-    </div>
-    <div>
-        <button class="btn success" @click="plus">+
-        </button>
-        <button class="btn success" @click="minus">-
-        </button>
-        <button class="btn success" @click="multi">x
+        <button class="btn success" @click="three">3
         </button>
         <div>
-            <button class="btn success" @click="divi">/
+            <button class="btn success" @click="four">4
             </button>
-            <button class="btn success" @click="pn">.
+            <button class="btn success" @click="five">5
             </button>
-            <button class="btn success" @click="perc">%
+            <button class="btn success" @click="six">6
             </button>
         </div>
+        <div>
+            <button class="btn success" @click="seven">7
+            </button>
+            <button class="btn success" @click="eight">8
+            </button>
+            <button class="btn success" @click="nine">9
+            </button>
+        </div>
+        <div>
+            <button class="btn success" @click="clr">C
+            </button>
+            <button class="btn success" @click="zero">0
+            </button>
+            <button class="btn success" @click="eql">=
+            </button>
+        </div>
+        <div>
+            <button class="btn success" @click="plus">+
+            </button>
+            <button class="btn success" @click="minus">-
+            </button>
+            <button class="btn success" @click="multi">x
+            </button>
+            <div>
+                <button class="btn success" @click="divi">/
+                </button>
+                <button class="btn success" @click="pn">.
+                </button>
+                <button class="btn success" @click="perc">%
+                </button>
+            </div>
+        </div>
+        <br>
     </div>
-    <br>
-    
 </template>
-
 
 
 <script>
@@ -83,86 +97,85 @@ export default {
         }
     },
     methods: {
-        one(){
-            if(this.val == '0')
+        one() {
+            if (this.val == '0')
                 this.val = '';
             this.val += '1';
             this.s += '1';
             this.isClick = 1;
         },
-        two(){
-            if(this.val == '0')
+        two() {
+            if (this.val == '0')
                 this.val = '';
             this.val += '2';
             this.s += '2';
             this.isClick = 2;
         },
-        three(){
-            if(this.val == '0')
+        three() {
+            if (this.val == '0')
                 this.val = '';
             this.val += '3';
             this.s += '3';
             this.isClick = 3;
         },
-        four(){
-            if(this.val == '0')
+        four() {
+            if (this.val == '0')
                 this.val = '';
             this.val += '4';
             this.s += '4';
             this.isClick = 4;
         },
-        five(){
-            if(this.val == '0')
+        five() {
+            if (this.val == '0')
                 this.val = '';
             this.val += '5';
             this.s += '5';
             this.isClick = 5;
         },
-        six(){
-            if(this.val == '0')
+        six() {
+            if (this.val == '0')
                 this.val = '';
             this.val += '6';
             this.s += '6';
             this.isClick = 6;
         },
-        seven(){
-            if(this.val == '0')
+        seven() {
+            if (this.val == '0')
                 this.val = '';
             this.val += '7';
             this.s += '7';
             this.isClick = 7;
         },
-        eight(){
-            if(this.val == '0')
+        eight() {
+            if (this.val == '0')
                 this.val = '';
             this.val += '8';
             this.s += '8';
             this.isClick = 8;
         },
-        nine(){
-            if(this.val == '0')
+        nine() {
+            if (this.val == '0')
                 this.val = '';
             this.val += '9';
             this.s += '9';
             this.isClick = 9;
         },
-        zero(){
-            if(this.val == '0')
+        zero() {
+            if (this.val == '0')
                 this.val = '';
             //this.val = '0';
             this.val += '0';
             this.s += '0';
             this.isClick = 10;
         },
-        clr(){
+        clr() {
             this.val = '';
             this.sign = '';
             this.isClick = 0;
             this.s = '';
             this.ans = 0;
         },
-        plus(){
-
+        plus() {
             this.ans += parseInt(this.val);
             this.s += '+';
             this.isClick = 11;
@@ -170,10 +183,10 @@ export default {
             this.val = '0';
             console.log(this.ans);
         },
-        minus(){
-            if(this.ans)
+        minus() {
+            if (this.ans)
                 this.ans -= parseInt(this.val);
-            else if(this.ans == 0)
+            else if (this.ans == 0)
                 this.ans += parseInt(this.val);
             this.isClick = 12;
             this.sign = '-';
@@ -181,16 +194,14 @@ export default {
             this.val = '0';
             console.log(this.ans);
         },
-        multi(){
-            if(this.ans)
-            {
-                if(this.val == '0')
+        multi() {
+            if (this.ans) {
+                if (this.val == '0')
                     this.val = '1';
                 this.ans *= parseInt(this.val);
                 this.val = '0';
             }
-            else if(this.ans == 0)
-            {
+            else if (this.ans == 0) {
                 this.ans *= parseInt(this.val), this.val = '1';
             }
             this.s += 'x';
@@ -198,21 +209,20 @@ export default {
             this.sign = 'x';
             console.log(this.ans);
         },
-        divi(){
-            if(this.val !== '0' )
+        divi() {
+            if (this.val !== '0')
                 this.ans /= this.val;
             this.isClick = 14;
             this.val = '0';
             console.log(this.val);
         },
-        eql()
-        {
+        eql() {
             this.isClick = 20;
-            if(this.sign == '+')
+            if (this.sign == '+')
                 this.ans += parseInt(this.val);
-            else if(this.sign == '-')
+            else if (this.sign == '-')
                 this.ans -= parseInt(this.val);
-            
+
             console.log(this.ans);
             //this.val = toString(this.ans);
         }
@@ -244,5 +254,33 @@ export default {
 /* Green */
 .success:hover {
     background-color: #46a049;
+}
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+}
+
+.card button {
+    size: 20px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.card button:hover {
+    opacity: 0.7;
+}
+.num {
+    border: 5px solid rgba(255, 0, 0, 0.826);
+    border-radius: 1px;
+}
+
+.answer {
+    border: none;
+    border-radius: 4px;
 }
 </style>
