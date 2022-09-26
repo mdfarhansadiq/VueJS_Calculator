@@ -1,33 +1,8 @@
 <template>
     <div class="card">
-        <!-- <div class="calculator" v-if="isClick == 20">{{ans}}</div> -->
         <input class="num" v-model="val" />
         <div class="answer" v-if="ans">{{ans}}</div>
-        <!-- <input class="calculator" v-if="isClick == 2" v-model="val"/>
-        <input class="calculator" v-if="isClick == 3" v-model="val"/>
-        <input class="calculator" v-if="isClick == 4" v-model="val"/>
-        <input class="calculator" v-if="isClick == 5" v-model="val"/>
-        <input class="calculator" v-if="isClick == 6" v-model="val"/>
-        <input class="calculator" v-if="isClick == 7" v-model="val"/>
-        <input class="calculator" v-if="isClick == 8" v-model="val"/>
-        <input class="calculator" v-if="isClick == 9" v-model="val"/>
-        <input class="calculator" v-if="isClick == 10" v-model="val"/>
-        <input class="calculator" v-if="isClick == 11" v-model="ans"/>
-        <input class="calculator" v-if="isClick == 12" v-model="ans"/>
-        <input class="calculator" v-if="isClick == 13" v-model="ans"/> -->
     </div>
-    <!-- <div class="calculator" v-if="isClick == 2">{{val}}</div>
-        <div class="calculator" v-if="isClick == 3">{{val}}</div>
-        <div class="calculator" v-if="isClick == 4">{{val}}</div>
-        <div class="calculator" v-if="isClick == 5">{{val}}</div>
-        <div class="calculator" v-if="isClick == 6">{{val}}</div>
-        <div class="calculator" v-if="isClick == 7">{{val}}</div>
-        <div class="calculator" v-if="isClick == 8">{{val}}</div>
-        <div class="calculator" v-if="isClick == 9">{{val}}</div>
-        <div class="calculator" v-if="isClick == 10">{{val}}</div>
-        <div class="calculator" v-if="isClick == 11">{{ans}}</div>
-        <div class="calculator" v-if="isClick == 12">{{ans}}</div>
-        <div class="calculator" v-if="isClick == 13">{{ans}}</div> -->
     <div>
         <button class="btn success" @click="one">1
         </button>
@@ -78,7 +53,6 @@
         <br>
     </div>
 </template>
-
 
 <script>
 
@@ -202,19 +176,19 @@ export default {
                 this.val = '0';
             }
             else if (this.ans == 0) {
-                this.ans *= parseInt(this.val), this.val = '1';
+                this.ans = 1;
+                this.ans *= parseInt(this.val), this.val = '0';
             }
-            this.s += 'x';
-            this.isClick = 13;
-            this.sign = 'x';
-            console.log(this.ans);
         },
         divi() {
-            if (this.val !== '0')
-                this.ans /= this.val;
+            if (this.ans == 0) {
+                this.ans = parseInt(this.val);
+            }
+            else {
+                this.ans /= parseInt(this.val);
+            }
             this.isClick = 14;
             this.val = '0';
-            console.log(this.val);
         },
         eql() {
             this.isClick = 20;
@@ -224,16 +198,7 @@ export default {
                 this.ans -= parseInt(this.val);
 
             console.log(this.ans);
-            //this.val = toString(this.ans);
         }
-        // multi(){
-        //     this.val = '1';
-        //     this.isClick = 1;
-        // },
-        // divi(){
-        //     this.sign = '1';
-        //     this.isClick = 1;
-        // },
     }
 }
 </script>
@@ -274,6 +239,7 @@ export default {
 .card button:hover {
     opacity: 0.7;
 }
+
 .num {
     border: 5px solid rgba(255, 0, 0, 0.826);
     border-radius: 1px;
