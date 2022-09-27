@@ -190,6 +190,10 @@ export default {
             this.isClick = 14;
             this.val = '0';
         },
+        perc() {
+            if (this.ans)
+                this.ans /= 100;
+        },
         eql() {
             this.isClick = 20;
             if (this.sign == '+')
